@@ -20,6 +20,7 @@ namespace SitecoreRedemption.Feature.Chatbot
                 public static readonly ID ContentRoots = new ID("{03E2DC78-0508-4701-9DD9-F47F6EB7FDD7}");
                 public static readonly ID IncludedTemplates = new ID("{BB3F194E-20C1-4AEE-ADDD-D835D8037A94}");
                 public static readonly ID ExcludedTemplates = new ID("{729CE10F-730E-485E-A843-2F9A2250BF65}");
+                public static readonly ID NoAnswer = new ID("{B1572F5B-5E94-4284-805F-44840FE584C9}");
             }
         }
     }

@@ -31,8 +31,9 @@ namespace SitecoreRedemption.Feature.Chatbot.Controllers
                 return Json(new { Answer = "Invalid configuration." });
 
             var brandPrompt = settingsItem.Fields[Templates.ChatbotConfiguration.Fields.BrandPrompt]?.Value ?? string.Empty;
+            var defaultNoAnswer = settingsItem.Fields[Templates.ChatbotConfiguration.Fields.NoAnswer]?.Value ?? string.Empty;
 
-            var answer = _chatbotService.GenerateAnswer(question, brandPrompt);
+            var answer = _chatbotService.GenerateAnswer(question, brandPrompt, defaultNoAnswer);
 
             return Json(new { Answer = answer });
         }

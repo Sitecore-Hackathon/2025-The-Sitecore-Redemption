@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using Sitecore.Configuration;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
+using Sitecore.Sites;
 using SitecoreRedemption.Feature.Chatbot.Models;
 using SitecoreRedemption.Feature.Chatbot.Repositories;
 using System;
@@ -27,33 +28,28 @@ namespace SitecoreRedemption.Feature.Chatbot.Services
         {
             _embeddingRepository = embeddingRepository;
         }
-        public string GenerateAnswer(string question, string brandPrompt)
+        public string GenerateAnswer(string question, string brandPromptTemplate, string noAnswer)
         {
             var relevantContent = GetRelevantContent(question);
 
             if (!relevantContent.Any())
-                return "I'm sorry, I couldn't find any information on that topic.";
+                return noAnswer;
 
             var contentBuilder = new StringBuilder();
             foreach (var content in relevantContent)
             {
+                contentBuilder.AppendLine($"Model: [{content.ModelName}]({content.Url})");
                 contentBuilder.AppendLine(content.ContentExcerpt);
             }
 
-            var fullPrompt = $@"
-                {brandPrompt}
-
-                Answer ONLY using the provided content below. DO NOT add any information that's not explicitly provided. 
-                If no answer is explicitly found, say exactly: 'I'm sorry, I couldn't find any information on that topic.'
-
-                Provided Content:
-                {contentBuilder}
-
-                Question: {question}
-                Answer:";
+            var fullPrompt = brandPromptTemplate
+                .Replace("{{content}}", contentBuilder.ToString())
+                .Replace("{{question}}", question);
 
             return OllamaApiService.GetCompletion(fullPrompt);
         }
+
+
 
 
         private IList<ChatbotEmbedding> GetRelevantContent(string query, int topResults = 5)
@@ -111,9 +107,12 @@ namespace SitecoreRedemption.Feature.Chatbot.Services
             var includedTemplates = includedTemplatesField.GetItems();
             var excludedTemplates = excludedTemplatesField.GetItems();
 
-            foreach (var root in roots)
+            using (new SiteContextSwitcher(Factory.GetSite("website")))
             {
-                CrawlItemRecursive(root, includedTemplates, excludedTemplates);
+                foreach (var root in roots)
+                {
+                    CrawlItemRecursive(root, includedTemplates, excludedTemplates);
+                }
             }
         }
 
@@ -126,12 +125,16 @@ namespace SitecoreRedemption.Feature.Chatbot.Services
 
                 if (embedding != null)
                 {
+                    var itemUrl = Sitecore.Links.LinkManager.GetItemUrl(item);
+
                     _embeddingRepository.SaveEmbedding(new ChatbotEmbedding
                     {
                         ItemId = item.ID.ToString(),
                         ItemPath = item.Paths.FullPath,
                         ContentExcerpt = structuredText,
-                        Vector = embedding
+                        Vector = embedding,
+                        Url = itemUrl,
+                        ModelName = item["ModelName"]
                     });
                 }
             }
@@ -141,6 +144,7 @@ namespace SitecoreRedemption.Feature.Chatbot.Services
                 CrawlItemRecursive(child, includedTemplates, excludedTemplates);
             }
         }
+
 
         private string BuildEmbeddingText(Item bikeItem)
         {

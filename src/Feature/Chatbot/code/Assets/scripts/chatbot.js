@@ -16,10 +16,12 @@
             url: '/api/sitecore/ChatBot/Ask',
             type: 'POST',
             data: { question: question, configId: configId },
-            success: function (response) {
-                $("#chat-messages").append("<div>Bot: " + response.Answer + "</div>");
+           success: function(response){
+                var formattedResponse = marked.parse(response.Answer);
+                $("#chat-messages").append("<div>Bot: " + formattedResponse + "</div>");
                 addFeedbackButtons();
             },
+
             error: function () {
                 $("#chat-messages").append("<div>Bot: Oops, something went wrong.</div>");
             }
