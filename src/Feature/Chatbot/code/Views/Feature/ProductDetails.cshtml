@@ -1,0 +1,22 @@
+﻿@using Sitecore.Mvc.Presentation
+@model RenderingModel
+
+<div class="product-container">
+    <div class="product-header">
+        <span class="product-icon">⚡</span>
+        <h1 class="product-title">@Model.Item["ModelName"]</h1>
+    </div>
+    <h3 class="product-type">@Model.Item["Type"]</h3>
+
+    <div class="product-specs">
+        <h2>Components</h2>
+        <h3>Technical Specs</h3>
+
+        <div class="product-specs">
+            <h2>Components</h2>
+            <h3>Technical Specs</h3>
+            @Html.Raw(Model.Item["Description"]) 
+        </div>
+
+    </div>
+</div>

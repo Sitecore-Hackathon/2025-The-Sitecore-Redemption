@@ -12,6 +12,9 @@
     <None Remove="Views\Layouts\Outer.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\styles\chatbot.css" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="App_Config\Include\Feature\SitecoreRedemption.Feature.Chatbot.config" />
     <Content Include="Assets\scripts\chatbot.js" />
     <Content Include="Views\Feature\Chatbot.cshtml" />
