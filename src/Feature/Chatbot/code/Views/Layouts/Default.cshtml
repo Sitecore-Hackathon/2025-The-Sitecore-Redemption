@@ -1,0 +1,19 @@
+﻿@using Sitecore.Mvc.Presentation
+@{
+    Layout = "~/Views/Layouts/Outer.cshtml";
+}
+@section styles {
+    <!-- Include additional styles here -->
+    <link rel="stylesheet" href="/assets/styles/chatbot.css" />
+}
+
+@section scripts {
+    <!-- Include global scripts here -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/assets/scripts/chatbot.js"></script>
+}
+
+<div class="main-content">
+    @Html.Sitecore().Placeholder("main")
+</div>

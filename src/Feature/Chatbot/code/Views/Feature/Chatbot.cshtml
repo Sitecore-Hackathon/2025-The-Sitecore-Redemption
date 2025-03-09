@@ -1,0 +1,15 @@
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+
+<div class="chatbot-container" data-config-id="@Model.Item.ID">
+    <div class="chatbot-header">Chat with us!</div>
+    <div class="chatbot-body">
+        <div class="chatbot-messages">
+            <div class="message bot">@Html.Raw(Model.Item.Fields[SitecoreRedemption.Feature.Chatbot.Templates.ChatbotConfiguration.Fields.Greeting].Value)</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chat-input" placeholder="Ask a question..." />
+            <button id="send-btn">Send</button>
+        </div>
+    </div>

@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>SitecoreRedemption.Feature.Chatbot</RootNamespace>
+    <AssemblyName>SitecoreRedemption.Feature.Chatbot</AssemblyName>
+    <SitecoreRoleType>website</SitecoreRoleType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="App_Config\Include\Feature\SitecoreRedemption.Feature.Chatbot.config" />
+    <None Remove="Assets\scripts\chatbot.js" />
+    <None Remove="Views\Layouts\Default.cshtml" />
+    <None Remove="Views\Layouts\Outer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\styles\chatbot.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Config\Include\Feature\SitecoreRedemption.Feature.Chatbot.config" />
+    <Content Include="Assets\scripts\chatbot.js" />
+    <Content Include="Views\Feature\ProductDetails.cshtml" />
+    <Content Include="Views\Feature\Chatbot.cshtml" />
+    <Content Include="Views\Layouts\Default.cshtml" />
+    <Content Include="Views\Layouts\Outer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Sitecore.Client" Version="10.4.0" />
+    <PackageReference Include="Sitecore.Kernel" Version="10.4.0" />
+    <PackageReference Include="Sitecore.Mvc" Version="10.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SupportsSystemWeb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\..\dependencies\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chatbot", "Chatbot", "{FD62A2E9-482C-4C38-BA2F-6C8143A92D96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreRedemption.Feature.Chatbot", "src\Feature\Chatbot\code\SitecoreRedemption.Feature.Chatbot.csproj", "{09447028-8888-4369-9984-DE809C1DCD2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09447028-8888-4369-9984-DE809C1DCD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09447028-8888-4369-9984-DE809C1DCD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09447028-8888-4369-9984-DE809C1DCD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09447028-8888-4369-9984-DE809C1DCD2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FD62A2E9-482C-4C38-BA2F-6C8143A92D96} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{09447028-8888-4369-9984-DE809C1DCD2F} = {FD62A2E9-482C-4C38-BA2F-6C8143A92D96}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F080F7F-6C74-42F1-B5EF-B2D65647B6E1}
+	EndGlobalSection
+EndGlobal
