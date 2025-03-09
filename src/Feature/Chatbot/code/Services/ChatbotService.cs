@@ -46,6 +46,21 @@ namespace SitecoreRedemption.Feature.Chatbot.Services
                 .Replace("{{content}}", contentBuilder.ToString())
                 .Replace("{{question}}", question);
 
+            //var fullPrompt = $@"
+            //    {brandPromptTemplate}
+
+            //    Answer ONLY using the provided content below. Do NOT add information not explicitly provided. 
+            //    If asked about a specific feature (e.g., tires, frame, fork) of a bike model, explicitly provide the requested feature details if available.
+            //    If the feature is NOT explicitly mentioned for that bike, say exactly: 
+            //    'I'm sorry, I couldn't find details on that specific feature for [bike model]. You can find more details [here](URL).'
+
+            //    Provided Content:
+            //    {contentBuilder}
+
+            //    Question: {question}
+            //    Answer (clearly include markdown links to products):
+            //    ";
+
             return OllamaApiService.GetCompletion(fullPrompt);
         }
 

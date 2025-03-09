@@ -17,6 +17,7 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Feature\SitecoreRedemption.Feature.Chatbot.config" />
     <Content Include="Assets\scripts\chatbot.js" />
+    <Content Include="Views\Feature\ProductDetails.cshtml" />
     <Content Include="Views\Feature\Chatbot.cshtml" />
     <Content Include="Views\Layouts\Default.cshtml" />
     <Content Include="Views\Layouts\Outer.cshtml" />
