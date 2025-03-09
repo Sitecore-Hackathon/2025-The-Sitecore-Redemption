@@ -17,9 +17,9 @@
 
 
 ## Video link
-⟹ Provide a video highlighing your Hackathon module submission and provide a link to the video. You can use any video hosting, file share or even upload the video to this repository. _Just remember to update the link below_
-
-⟹ [Replace this Video link](#video-link)
+1. Download the video from here:
+[
+⟹ \[Video Link\](#video-link)](https://drive.google.com/drive/folders/1wZUTXm2VU7NWygWbn5YXMwTBXPwx0diX?usp=sharing)
 
 ## Pre-requisites and Dependencies
 
@@ -54,7 +54,7 @@ Ollama is used for **processing AI responses** using a local LLM model.
 ```
 ## ✅ 2. Install the Sitecore Chatbot Module
 
-1. Install THIS SITECORE PACKAGE (/package/chatbot.zip)
+1. Install THIS SITECORE PACKAGE (/package/chatbot.zip) 
 2. Publish Site
 
 
